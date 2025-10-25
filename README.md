@@ -1,1 +1,1 @@
-# mobinogi-exchange-helper
+# mobinogi-helper
