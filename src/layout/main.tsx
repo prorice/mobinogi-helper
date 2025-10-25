@@ -86,9 +86,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* 푸터 */}
       <footer className="bg-white mt-12 py-6 border-t">
-        <div className="max-w-7xl mx-auto px-4 text-center text-gray-600 text-sm">
-          <p>마비노기 모바일 헬퍼 © 2025</p>
-          <p className="mt-1">팬메이드 사이트입니다. 공식 사이트가 아닙니다.</p>
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col items-center space-y-3">
+            <div className="text-center">
+              <p className="text-gray-800 font-semibold">마비노기 모바일 도우미</p>
+              <div className="flex items-center justify-center gap-2 mt-2">
+                <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                  던컨 서버
+                </span>
+                <span className="text-gray-400">•</span>
+                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                  톡톡마카롱
+                </span>
+              </div>
+            </div>
+
+            <p className="text-gray-500 text-xs">© 2025 All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>

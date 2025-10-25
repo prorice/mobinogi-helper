@@ -7,9 +7,9 @@ const AboutPage: React.FC = () => {
 
       <div className="prose max-w-none">
         <section className="mb-6">
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">마비노기 모바일 헬퍼란?</h3>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">마비노기 모바일 도우미</h3>
           <p className="text-gray-600">
-            마비노기 모바일 게임을 즐기는 유저들을 위한 팬메이드 헬퍼 사이트입니다.
+            마비노기 모바일 게임을 즐기는 유저들을 위한 팬메이드 도우미 사이트입니다.
           </p>
         </section>
 
