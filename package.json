@@ -1,6 +1,6 @@
 {
   "name": "mobinogi-helper",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "마비노기 모바일 도우미 웹사이트",
   "private": true,
   "type": "module",
