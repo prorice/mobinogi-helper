@@ -1,7 +1,7 @@
 {
   "name": "mobinogi-helper",
   "version": "1.0.0",
-  "description": "마비노기 모바일 물물교환 검색 웹사이트",
+  "description": "마비노기 모바일 도우미 웹사이트",
   "private": true,
   "type": "module",
   "homepage": "https://prorice.github.io/mobinogi-helper",
@@ -18,11 +18,13 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.263.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",

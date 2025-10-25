@@ -1,45 +1,34 @@
 import React from 'react';
 import LimitBadge from './LimitBadge';
+import { Exchange } from '../types/exchange';
 
-export interface Trade {
-  region: string;
-  npc: string;
-  need: string;
-  needQty: number;
-  get: string;
-  getQty: number;
-  limit: string;
-  maxCount: number;
-  note?: string;
+interface ExchangeTableRowProps {
+  exchange: Exchange;
 }
 
-interface TradeTableRowProps {
-  trade: Trade;
-}
-
-const TradeTableRow: React.FC<TradeTableRowProps> = ({ trade }) => {
+const ExchangeTableRow: React.FC<ExchangeTableRowProps> = ({ exchange }) => {
   return (
     <tr className="border-b border-gray-200 hover:bg-purple-50 transition-colors">
-      <td className="px-4 py-3 text-sm text-gray-800">{trade.region}</td>
-      <td className="px-4 py-3 text-sm font-medium text-blue-600">{trade.npc}</td>
+      <td className="px-4 py-3 text-sm text-gray-800">{exchange.region}</td>
+      <td className="px-4 py-3 text-sm font-medium text-blue-600">{exchange.npc}</td>
       <td className="px-4 py-3 text-sm">
-        <span className="text-gray-800">{trade.need}</span>
-        <span className="ml-1 text-red-600 font-semibold">×{trade.needQty}</span>
+        <span className="text-gray-800">{exchange.need}</span>
+        <span className="ml-1 text-red-600 font-semibold">×{exchange.needQty}</span>
       </td>
       <td className="px-4 py-3 text-center text-purple-600">→</td>
       <td className="px-4 py-3 text-sm">
-        <span className="text-gray-800">{trade.get}</span>
-        <span className="ml-1 text-green-600 font-semibold">×{trade.getQty}</span>
+        <span className="text-gray-800">{exchange.get}</span>
+        <span className="ml-1 text-green-600 font-semibold">×{exchange.getQty}</span>
       </td>
       <td className="px-4 py-3 text-center">
-        <LimitBadge limit={trade.limit} />
+        <LimitBadge limit={exchange.limit} />
       </td>
       <td className="px-4 py-3 text-center text-sm text-gray-600">
-        {trade.maxCount === 999 ? '∞' : trade.maxCount}
+        {exchange.maxCount === 999 ? '∞' : exchange.maxCount}
       </td>
-      <td className="px-4 py-3 text-xs text-gray-500">{trade.note || '-'}</td>
+      <td className="px-4 py-3 text-xs text-gray-500">{exchange.note || '-'}</td>
     </tr>
   );
 };
 
-export default TradeTableRow;
+export default ExchangeTableRow;
