@@ -5,5 +5,5 @@ export interface Rune {
   job?: string; // 직업 전용 룬인 경우
   effect: string;
   description?: string;
-  tier?: number; // 1~5 티어
+  season?: number; // 1~5 시즌
 }

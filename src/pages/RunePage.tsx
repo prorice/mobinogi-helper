@@ -2,19 +2,20 @@ import React, { useState, useMemo } from 'react';
 import { Filter, X } from 'lucide-react';
 import SearchBar from '../components/SearchBar';
 import FilterSection from '../components/FilterSection';
-import { RuneData, jobs } from '../data/runeData';
+import { RuneData } from '../data/runeData';
+import { jobs } from '../data/jobData';
 
 const RunePage: React.FC = () => {
   const [searchName, setSearchName] = useState<string>('');
   const [selectedEquipments, setSelectedEquipments] = useState<string[]>([]);
   const [selectedGrades, setSelectedGrades] = useState<string[]>([]);
   const [selectedJobs, setSelectedJobs] = useState<string[]>([]);
-  const [selectedTiers, setSelectedTiers] = useState<string[]>([]); // 티어 필터 추가
+  const [selectedSeason, setselectedSeason] = useState<string[]>([]); // 시즌 필터 추가
   const [showFilters, setShowFilters] = useState<boolean>(false);
 
   const equipments = ['무기', '방어구', '악세사리', '엠블럼'];
   const grades = ['전설', '신화'];
-  const tiers = ['1티어'];
+  const seasons = ['시즌1'];
 
   const filteredData = useMemo(() => {
     return RuneData.filter(rune => {
@@ -25,12 +26,13 @@ const RunePage: React.FC = () => {
       const matchJob =
         selectedJobs.length === 0 ||
         (rune.equipment === '악세사리' && rune.job && selectedJobs.includes(rune.job));
-      const matchTier =
-        selectedTiers.length === 0 || (rune.tier && selectedTiers.includes(`${rune.tier}티어`)); // 티어 필터 조건
+      const matchSeason =
+        selectedSeason.length === 0 ||
+        (rune.season && selectedSeason.includes(`시즌${rune.season}`)); // 시즌 필터 조건
 
-      return matchName && matchEquipment && matchGrade && matchJob && matchTier;
+      return matchName && matchEquipment && matchGrade && matchJob && matchSeason;
     });
-  }, [searchName, selectedEquipments, selectedGrades, selectedJobs, selectedTiers]);
+  }, [searchName, selectedEquipments, selectedGrades, selectedJobs, selectedSeason]);
 
   const toggleFilter = (
     value: string,
@@ -49,7 +51,7 @@ const RunePage: React.FC = () => {
     setSelectedEquipments([]);
     setSelectedGrades([]);
     setSelectedJobs([]);
-    setSelectedTiers([]);
+    setselectedSeason([]);
   };
 
   const hasActiveFilters =
@@ -57,7 +59,7 @@ const RunePage: React.FC = () => {
     selectedEquipments.length > 0 ||
     selectedGrades.length > 0 ||
     selectedJobs.length > 0 ||
-    selectedTiers.length > 0;
+    selectedSeason.length > 0;
 
   const getTierColor = (tier?: number) => {
     if (!tier) return 'bg-gray-100 text-gray-700';
@@ -126,10 +128,10 @@ const RunePage: React.FC = () => {
               colorClass="bg-blue-600 text-white"
             />
             <FilterSection
-              title="티어"
-              items={tiers}
-              selectedItems={selectedTiers}
-              onToggle={value => toggleFilter(value, selectedTiers, setSelectedTiers)}
+              title="시즌"
+              items={seasons}
+              selectedItems={selectedSeason}
+              onToggle={value => toggleFilter(value, selectedSeason, setselectedSeason)}
               colorClass="bg-red-600 text-white"
             />
             <FilterSection
@@ -165,11 +167,11 @@ const RunePage: React.FC = () => {
               >
                 <div className="flex justify-between items-start mb-3">
                   <h4 className="text-lg font-bold text-gray-900">{rune.name}</h4>
-                  {rune.tier && (
+                  {rune.season && (
                     <span
-                      className={`px-2 py-1 rounded-full text-xs font-medium ${getTierColor(rune.tier)}`}
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${getTierColor(rune.season)}`}
                     >
-                      {rune.tier}티어
+                      시즌{rune.season}
                     </span>
                   )}
                 </div>
