@@ -12,6 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
 
   const menuItems = [
+    { path: '/rune', label: '룬 정보' },
     { path: '/exchange', label: '물물교환' },
     { path: '/', label: '정보' },
     // 추후 추가할 메뉴들
